@@ -4,20 +4,20 @@ class Git(object):
 
     @staticmethod
     def rename(src, ds ):
-        cmd = 'git mv {} {}'.format( src, dst )
+        cmd = 'git mv "{}" "{}"'.format( src, dst )
         return cmd
 
 class SVN(object):
 
     @staticmethod
     def rename(src, ds ):
-        cmd = 'svn mv {} {}'.format( src, dst )
+        cmd = 'svn mv "{}" "{}"'.format( src, dst )
         return cmd
 
 # Test commands
-# python rename.py git D:\follow\folder ^ch b
+# python rename.py git D:\follow ^ch b
 # python rename.py svn D:\follow ^ch b
-# python rename.py git D:\follow change(\d+).txt item\1.txt
+# python rename.py git "D:\fol low" change(\d+).txt item\1.txt
 # 參數輸入
 py_file, *argv = sys.argv
 sub_version = argv[0] if len(argv) > 0 else input('請輸入版控類型[git/svn]:\n')
